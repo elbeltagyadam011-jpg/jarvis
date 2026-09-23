@@ -1,0 +1,23 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.adam.jarvis'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.adam.jarvis'
+        minSdk 26
+        targetSdk 35
+        versionCode 5
+        versionName "5.1-security"
+
+    buildFeatures {
+        buildConfig true
+    }
+    }
+}
+
+dependencies {
+}

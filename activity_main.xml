@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#05080D"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:text="J.A.R.V.I.S."
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#D9F8FF"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:text="JUST A RATHER VERY INTELLIGENT SYSTEM"
+            android:textSize="10sp"
+            android:letterSpacing="0.16"
+            android:textColor="#6FE7FF"
+            android:gravity="center"
+            android:layout_marginBottom="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/panel"
+            android:padding="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/status"
+                android:text="SYSTEM ONLINE"
+                android:textColor="#7FFFD4"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/assistant"
+                android:text="Welcome back, Sir."
+                android:textColor="#E8F7FA"
+                android:textSize="20sp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/transcript"
+                android:text="Tap TALK to speak. Press it again to stop a voice session."
+                android:textColor="#A9BBC4"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/talk"
+            android:text="●  TALK TO JARVIS"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="#DDFBFF"
+            android:background="@drawable/button"
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"/>
+
+        <TextView
+            android:text="CONTROL CENTER"
+            android:textColor="#6FE7FF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/panel"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox android:id="@+id/allowApps" android:text="Open approved apps" android:textColor="#D9E7EC" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowSettings" android:text="Open device settings" android:textColor="#D9E7EC" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowVolume" android:text="Control media volume" android:textColor="#D9E7EC" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowTorch" android:text="Control flashlight" android:textColor="#D9E7EC" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowMedia" android:text="Media play / pause" android:textColor="#D9E7EC" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowUtilities" android:text="Time, date, battery, calculator, timer" android:textColor="#D9E7EC" android:checked="true" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowCamera" android:text="Launch camera" android:textColor="#D9E7EC" android:checked="false" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:text="AI / VOICE" android:textColor="#6FE7FF" android:textStyle="bold" android:textSize="12sp" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <CheckBox android:id="@+id/allowAI" android:text="Use AI conversation mode" android:textColor="#D9E7EC" android:checked="false" android:layout_width="match_parent" android:layout_height="wrap_content"/><CheckBox android:id="@+id/wakeMode" android:text="JARVIS wake session (say “JARVIS”)" android:textColor="#D9E7EC" android:checked="false" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/apiKey" android:hint="Gemini API key (optional)" android:inputType="textPassword" android:textColor="#D9E7EC" android:hintTextColor="#71858F" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:id="@+id/modelName" android:hint="Model name" android:text="gemini-3.8-flash" android:textColor="#D9E7EC" android:hintTextColor="#71858F" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/aiNote" android:text="AI uses structured tools. Device-control actions require your local permission and a one-time confirmation. AI tool chains are limited for safety." android:textColor="#8297A1" android:textSize="11sp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:text="QUICK COMMANDS"
+            android:textColor="#6FE7FF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <GridLayout
+            android:columnCount="2"
+            android:rowCount="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button android:id="@+id/qYouTube" android:text="YouTube" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qChrome" android:text="Chrome" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qSettings" android:text="Settings" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qTorch" android:text="Flashlight" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qVolumeUp" android:text="Volume +" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qVolumeDown" android:text="Volume -" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qBattery" android:text="Battery" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qTime" android:text="Time" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qCamera" android:text="Camera" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qPlay" android:text="Play / Pause" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qCalendar" android:text="Calendar" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qContacts" android:text="Contacts" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qDisplay" android:text="Display" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+            <Button android:id="@+id/qStatus" android:text="System Status" android:background="@drawable/button" android:textColor="#DDFBFF" android:layout_width="0dp" android:layout_columnWeight="1" android:layout_height="50dp"/>
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/log"
+            android:text="COMMAND LOG\n— System ready."
+            android:textColor="#8297A1"
+            android:textSize="12sp"
+            android:background="@drawable/panel"
+            android:layout_marginTop="18dp"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"/>
+    </LinearLayout>
+</ScrollView>
