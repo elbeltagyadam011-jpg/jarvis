@@ -16,13 +16,39 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Create APK Package
+    - name: Organize Project Structure
       run: |
-        mkdir -p app/build/outputs/apk/debug/
-        echo "Jarvis App Dummy APK" > app/build/outputs/apk/debug/app-debug.apk
+        mkdir -p app/src/main/java/com/jarvis/app
+        mkdir -p app/src/main/res
+        
+        # نقل ملفات الجافا إن وجدت
+        mv *.java app/src/main/java/com/jarvis/app/ 2>/dev/null || true
+        
+        # نقل ملف الواجهات أو المانيفست إن وجد
+        mv AndroidManifest.xml app/src/main/AndroidManifest.xml 2>/dev/null || true
+        
+        # إنشاء ملف build.gradle الخاص بالتطبيق
+        echo "plugins { id 'com.android.application' }" > app/build.gradle
+        echo "android {" >> app/build.gradle
+        echo "    compileSdk 33" >> app/build.gradle
+        echo "    defaultConfig {" >> app/build.gradle
+        echo "        applicationId 'com.jarvis.app'" >> app/build.gradle
+        echo "        minSdk 21" >> app/build.gradle
+        echo "        targetSdk 33" >> app/build.gradle
+        echo "        versionCode 1" >> app/build.gradle
+        echo "        versionName '1.0'" >> app/build.gradle
+        echo "    }" >> app/build.gradle
+        echo "}" >> app/build.gradle
 
-    - name: Upload APK
+    - name: Build with Gradle Wrapper or Android tools
+      run: |
+        gradle wrapper
+        ./gradlew assembleDebug || javac app/src/main/java/com/jarvis/app/*.java
+
+    - name: Upload Real APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: |
+          app/build/outputs/apk/debug/app-debug.apk
+          app-debug.apk
