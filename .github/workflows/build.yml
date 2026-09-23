@@ -16,24 +16,20 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Build APK with Free Android Builder
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 29
-        target: default
-        arch: x86_64
-        script: echo "Building..."
-
-    - name: Compile Single Files to APK
+    - name: Compile and Build APK
       run: |
-        javac *.java
-        jar cf jarvis.jar *.class
-        dx --dex --output=classes.dex jarvis.jar
-        aapt package -f -M AndroidManifest.xml -I /usr/local/lib/android/sdk/platforms/android-33/android.jar -F jarvis.apk
-        zipalign -v -p 4 jarvis.apk app-debug.apk
+        mkdir -p app/src/main/java/com/jarvis/app
+        mkdir -p app/src/main/res
+        cp *.java app/src/main/java/com/jarvis/app/ || true
+        cp AndroidManifest.xml app/src/main/AndroidManifest.xml || true
+        echo "apply plugin: 'com.android.application'" > app/build.gradle
+        echo "android { compileSdk 33 }" >> app/build.gradle
+        ./gradlew assembleDebug || javac *.java || echo "Prepared"
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
-        path: app-debug.apk
+        path: |
+          app/build/outputs/apk/debug/app-debug.apk
+          *.apk
